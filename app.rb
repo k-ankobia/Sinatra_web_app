@@ -11,12 +11,14 @@ get '/secret' do
   'Is this your king? '
 end
 
-get '/not secret' do
-  'is it james or hames'
+get '/random-cat' do
+@name =["Amigo", "Oscar", "Viking"].sample
+@age = ["22", "43", "11"].sample
+  erb(:index)
 end
 
-get '/cat' do
-  "<div style='border: 3px dashed red'>
-     <img src='http://bit.ly/1eze8aE'>
-   </div>"
+get '/named-cat' do
+  @name = params[:name]
+  @age = params[:age]
+  erb(:index)
 end
